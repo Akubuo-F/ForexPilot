@@ -13,7 +13,7 @@ from src.utils.root_directory_helper import RootDirectoryHelper
 class TestCotReportDownloader(unittest.TestCase):
 
     def setUp(self):
-        log_file_path: str = ConfigLoader.load_yaml_config("paths.yml")["logging"]["cot_report_downloader"]
+        log_file_path: str = ConfigLoader.load_yaml_config("paths.yml")["logging"]["test_cot_report_downloader"]
         logger: Logger = Logger(
             log_file=f"{RootDirectoryHelper().root_dir}/{log_file_path}"
         )
@@ -29,7 +29,8 @@ class TestCotReportDownloader(unittest.TestCase):
             self.assertIsInstance(cot_report, pd.DataFrame, "Output is not a DataFrame.")
             self.assertFalse(cot_report.empty, "DataFrame is empty.")
 
-            csv_filepath: str = f"{RootDirectoryHelper().root_dir}/csv_files/cot_reports/tests/cot_report_downloader/cot_reports.csv"
+            csv_filepath: str = f"{RootDirectoryHelper().root_dir}/{ConfigLoader.load_yaml_config("paths.yml")
+            ["cot_report"]["test_csv_download"]}"
             cot_report.to_csv(csv_filepath, sep=',', quotechar='"')
 
             print(f"Report Head\n: {cot_report.head()}")
