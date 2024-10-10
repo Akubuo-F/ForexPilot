@@ -13,3 +13,11 @@ class AbstractCotReportDownloader(ABC):
             reporting_environments: Iterable[str]
     ) -> pd.DataFrame:
         ...
+
+    @abstractmethod
+    def download_report_as_school_year(
+            self,
+            current_year: int,
+            reporting_environments: Iterable[str]
+    ) -> pd.DataFrame:
+        ...

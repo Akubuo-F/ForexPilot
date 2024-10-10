@@ -14,7 +14,8 @@ class CotReportDownloader(AbstractCotReportDownloader):
         self._logger: logging.Logger = logger.get_logger()
 
     def download_report(
-            self, report_years: Iterable[int],
+            self,
+            report_years: Iterable[int],
             reporting_environments: Iterable[str]
     ) -> pd.DataFrame:
         try:
@@ -24,6 +25,12 @@ class CotReportDownloader(AbstractCotReportDownloader):
         except Exception as e:
             self._logger.error(f"Failed to download cot reports: {e}")
             raise
+
+    def download_report_as_school_year(self, current_year: int, reporting_environments: Iterable[str]) -> pd.DataFrame:
+        start_year: int = current_year - 1
+        end_year: int = current_year
+        report_years: range = range(start_year, end_year + 1)
+        return self.download_report(report_years, reporting_environments)
 
     @staticmethod
     def _download(report_years: Iterable[int], reporting_environments: Iterable[str]) -> pd.DataFrame:
