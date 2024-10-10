@@ -7,17 +7,9 @@ import pandas as pd
 class AbstractCotReportDownloader(ABC):
 
     @abstractmethod
-    def download_report(
-            self,
-            report_years: Iterable[int],
-            reporting_environments: Iterable[str]
-    ) -> pd.DataFrame:
+    def download_report(self, report_years: Iterable[int]) -> pd.DataFrame:
         ...
 
     @abstractmethod
-    def download_report_as_school_year(
-            self,
-            current_year: int,
-            reporting_environments: Iterable[str]
-    ) -> pd.DataFrame:
+    def download_report_as_school_year(self, current_year: int) -> pd.DataFrame:
         ...
