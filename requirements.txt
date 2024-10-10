@@ -1,4 +1,5 @@
 pandas
 requests
 beautifulsoup4
+pyyaml
 cot_reports

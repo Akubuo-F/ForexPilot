@@ -5,6 +5,7 @@ import pandas as pd
 
 from src.data_fetching.cot_report_downloader.cot_report_downloader import CotReportDownloader
 from src.data_fetching.cot_report_downloader.reporting_environments import ReportingEnvironments
+from src.utils.config_loader import ConfigLoader
 from src.utils.logger import Logger
 from src.utils.root_directory_helper import RootDirectoryHelper
 
@@ -12,8 +13,9 @@ from src.utils.root_directory_helper import RootDirectoryHelper
 class TestCotReportDownloader(unittest.TestCase):
 
     def setUp(self):
+        log_file_path: str = ConfigLoader.load_config("paths.yml")["logging"]["cot_report_downloader"]
         logger: Logger = Logger(
-            log_file=f"{RootDirectoryHelper().root_dir}/logs/data_fetching/tests/cot_report_downloader.log"
+            log_file=f"{RootDirectoryHelper().root_dir}/{log_file_path}"
         )
         self.cot_downloader: CotReportDownloader = CotReportDownloader(logger)
         self._reporting_environments: list[str] = [

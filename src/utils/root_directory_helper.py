@@ -22,3 +22,6 @@ class RootDirectoryHelper:
     @property
     def root_dir(self) -> str:
         return self._root_dir
+
+if __name__ == '__main__':
+    print(RootDirectoryHelper().root_dir)

@@ -1,0 +1,2 @@
+logging:
+  cot_report_downloader: "logs/data_fetching/tests/cot_report_downloader.log"
