@@ -5,7 +5,7 @@ import cot_reports
 import pandas as pd
 
 from src.data_fetching.base.abstract_cot_report_downloader import AbstractCotReportDownloader
-from src.data_fetching.cot_report_processor import CotReportProcessor
+from src.data_fetching.base.abstract_cot_report_processor import AbstractCotReportProcessor
 from src.utils.config_loader import ConfigLoader
 from src.utils.logger import Logger
 
@@ -13,8 +13,8 @@ from src.utils.logger import Logger
 class LegacyFuturesCotReportDownloader(AbstractCotReportDownloader):
     REPORTING_ENVIRONMENT: Final[str] = "legacy_fut"
 
-    def __init__(self, cot_report_processor: CotReportProcessor, logger: Logger):
-        self._cot_report_processor: CotReportProcessor = cot_report_processor
+    def __init__(self, cot_report_processor: AbstractCotReportProcessor, logger: Logger):
+        self._cot_report_processor: AbstractCotReportProcessor = cot_report_processor
         self._logger: logging.Logger = logger.get_logger()
 
     def download_report(

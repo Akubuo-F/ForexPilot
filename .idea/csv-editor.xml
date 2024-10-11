@@ -3,7 +3,14 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
-        <entry key="\csv_files\cot_reports\tests\cot_report_downloader\cot_reports.csv">
+        <entry key="\files\csv_files\cot_reports\tests\cot_report_downloader\cot_reports.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\files\csv_files\cot_reports\tests\cot_report_downloader\mock_cot_report_for_cot_report_analyser.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
