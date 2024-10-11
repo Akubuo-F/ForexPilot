@@ -1,0 +1,6 @@
+logging:
+  test_cot_report_downloader: "files/logs/data_fetching/tests/cot_report_downloader.log"
+
+cot_report:
+  test_csv_download: "files/csv_files/cot_reports/tests/cot_report_downloader/cot_reports.csv"
+  mock_cot_report: "files/csv_files/cot_reports/tests/cot_report_analyser/mock_cot_report.csv"
